@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      html, body {
+          height: 100vh;
+      }
+
+      #container {
+          height: 100%;
+      }
+  </style>
+</head>
+<body>
+<div id="container"></div>
+
+<script type="module">
+  import Graph from 'https://cdn.jsdelivr.net/npm/graphology@0.25.4/+esm'
+  import Sigma from 'https://cdn.jsdelivr.net/npm/sigma@3.0.0-beta.24/+esm'
+
+  const graph = new Graph();
+
+  graph.addNode("1", { label: "Node 1", x: 0, y: 0, size: 10, color: "blue" });
+  graph.addNode("2", { label: "Node 2", x: 1, y: 1, size: 20, color: "red" });
+  graph.addEdge("1", "2", { size: 5, color: "purple" });
+
+  const renderer = new Sigma(
+    graph,
+    document.getElementById("container")
+  );
+</script>
+</body>
+</html>
